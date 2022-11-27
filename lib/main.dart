@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Demo!',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -47,17 +47,18 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   late TabController controller;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     controller = TabController(length: 2, vsync: this);
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('TabBar Example'),
@@ -66,18 +67,22 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         children: <Widget>[FirstApp(), SecondApp()],
         controller: controller,
       ),
-      bottomNavigationBar: TabBar(tabs: <Tab>[
-        Tab(icon: Icon(Icons.looks_one, color: Colors.blue),),
-        Tab(icon: Icon(Icons.looks_two, color: Colors.blue),)
-      ],controller: controller,
+      bottomNavigationBar: TabBar(
+        tabs: <Tab>[
+          Tab(
+            icon: Icon(Icons.looks_one, color: Colors.blue),
+          ),
+          Tab(
+            icon: Icon(Icons.looks_two, color: Colors.blue),
+          )
+        ],
+        controller: controller,
       ),
     );
   }
 
-
-
   @override
-  void dispose(){
+  void dispose() {
     controller.dispose();
     super.dispose();
   }
